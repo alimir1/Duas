@@ -12,27 +12,92 @@ protocol DuaSelectionDelegate: class {
     func didSelectDua(_ dua: Dua)
 }
 
-class DuasListViewController: UITableViewController {
+class DuasListViewController: UITableViewController, UISearchControllerDelegate, UISearchResultsUpdating {
     
-    @IBOutlet var searchBar: UISearchBar!
+    let searchController = UISearchController(searchResultsController: nil)
     
     var duas = [[Dua]]()
     var categories = [String]()
     var delegate: DuaSelectionDelegate?
     
+    var duasFromDatabase = [Dua]()
+    
+    var _duas = [Dua]() {
+        didSet {
+            let duaHelper = categoryDuaHelper(from: _duas)
+            categories = duaHelper.0
+            duas = duaHelper.1
+            tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        duasFromDatabase = allDuas
+        _duas = duasFromDatabase
         
-        
-        
-        let duaGroup = Dictionary(grouping: allDuas) { String($0.category) }
-        categories = duaGroup.keys.map {String($0)}
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Duas"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        searchController.delegate = self
+    }
+    
+    func categoryDuaHelper(from duas: [Dua]) -> ([String], [[Dua]]) {
+        let duaGroup = Dictionary(grouping: duas) { String($0.category) }
+        let categories = duaGroup.keys.map {String($0)}
+        var retDua = [[Dua]]()
         for category in categories {
-            if let duas = duaGroup[category] {
-                self.duas.append(duas)
+            if let _duas = duaGroup[category] {
+                retDua.append(_duas)
+            }
+        }
+        return (categories, retDua)
+    }
+    
+    // MARK: - Search
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchTerm = searchController.searchBar.text {
+            if searchTerm != "" && !searchTerm.trimmingCharacters(in: .whitespaces).isEmpty {
+                _duas = getDuas(for: searchTerm)
+            } else {
+                _duas = duasFromDatabase
+            }
+        }
+    }
+    
+    func getDuas(for term: String) -> [Dua] {
+        var searchDuas = Set<Dua>()
+        let term = term.lowercased()
+
+        for dua in duasFromDatabase {
+            
+            let arabicName = dua.arabicName.lowercased().components(separatedBy: " ")
+            let category = dua.category.lowercased().components(separatedBy: " ")
+            let englishName = dua.englishName.lowercased().components(separatedBy: " ")
+            
+            arabicName.forEach { (word) in
+                if word.hasPrefix(term) {
+                    searchDuas.insert(dua)
+                }
+            }
+            
+            category.forEach { (word) in
+                if word.hasPrefix(term) {
+                    searchDuas.insert(dua)
+                }
+            }
+            
+            englishName.forEach { (word) in
+                if word.hasPrefix(term) {
+                    searchDuas.insert(dua)
+                }
             }
         }
         
+        return Array<Dua>(searchDuas)
     }
     
     // MARK: - Table view setup

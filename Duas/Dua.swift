@@ -8,7 +8,8 @@
 
 import Foundation
 
-class Dua: Equatable {
+class Dua: Equatable, Hashable {
+    
     let englishName: String
     let arabicName: String
     let text: String
@@ -23,6 +24,10 @@ class Dua: Equatable {
     
     static func ==(lhs: Dua, rhs: Dua) -> Bool {
         return lhs.englishName == rhs.englishName
+    }
+    
+    var hashValue: Int {
+        return englishName.hashValue ^ arabicName.hashValue ^ category.hashValue
     }
 }
 
