@@ -29,6 +29,16 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if prevDua != dua {
+            duaView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+            duaView.dua = dua
+            title = dua?.arabicName
+            prevDua = dua
+        }
+    }
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "duaListSegue" {
             let vc = segue.destination as! DuasListViewController
@@ -67,10 +77,7 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
     
     func didSelectDua(_ dua: Dua) {
         if prevDua != dua {
-            duaView.dua = dua
-            duaView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-            prevDua = dua
-            title = dua.arabicName
+            self.dua = dua
         }
     }
         
