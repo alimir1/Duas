@@ -15,6 +15,8 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
     var prevDua: Dua?
     var dua: Dua?
     
+    var customIndicator: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(onPinch(_:)))
@@ -25,8 +27,33 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
         duaView.addGestureRecognizer(pinchRecognizer)
         title = dua?.arabicName
         
+        let navBarHeight = self.navigationController?.navigationBar.frame.size.height ?? 0
+        customIndicator = UIView(frame: CGRect(x: view.frame.width - 3, y: navBarHeight, width: 3, height: 0))
+        customIndicator.backgroundColor = .red
+        
+        view.addSubview(customIndicator)
+        
         // FIXME: - load font size, and contentOffset
         
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        refreshScrollIndicator(for: size)
+    }
+    
+    func refreshScrollIndicator(for size: CGSize) {
+        guard let customIndicator = customIndicator else { return }
+        let size = view.frame.size
+        var navBarHeight: CGFloat = (navigationController?.navigationBar != nil ? 32 : 8)
+        if UIDevice.current.orientation.isPortrait {
+            navBarHeight = navigationController?.navigationBar.frame.height ?? 0
+        }
+        let height = ((duaView.contentOffset.y+size.height-navBarHeight)/duaView.contentSize.height)*(size.height-navBarHeight)
+        customIndicator.frame = CGRect(x: size.width - customIndicator.frame.width, y: navBarHeight, width: customIndicator.frame.width, height: height)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        refreshScrollIndicator(for: view.frame.size)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +64,7 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
             title = dua?.arabicName
             prevDua = dua
         }
+        refreshScrollIndicator(for: view.frame.size)
     }
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,13 +92,11 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("scrollViewDidEndDecelerating contentOffset: \(scrollView.contentOffset)")
         // FIXME: - save content offset
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
-            print("scrollViewDidEndDragging contentOffset: \(scrollView.contentOffset)")
             // FIXME: - save content offset
         }
     }

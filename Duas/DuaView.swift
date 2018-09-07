@@ -34,6 +34,8 @@ class DuaView: UITextView {
         scrollsToTop = false
         isEditable = false
         textAlignment = .right
+        showsVerticalScrollIndicator = false
+        showsHorizontalScrollIndicator = false
     }
     
     func zoomTo(fontSize: CGFloat) {
