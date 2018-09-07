@@ -36,6 +36,7 @@ class DuaView: UITextView {
         textAlignment = .right
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
+        textContainerInset = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 8)
     }
     
     @discardableResult

@@ -21,7 +21,7 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
         super.viewDidLoad()
         let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(onPinch(_:)))
         duaView.delegate = self
-        dua = allDuas[0]
+        dua = allDuas[UserDefaults.standard.integer(forKey: "PreviouslyViewedDuaNumber")]
         prevDua = dua
         duaView.dua = dua
         duaView.addGestureRecognizer(pinchRecognizer)
@@ -41,6 +41,11 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
             duaView.contentOffset.y = CGFloat(contentOffset)  
             refreshScrollIndicator(for: view.frame.size)
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -114,6 +119,8 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
     func didSelectDua(_ dua: Dua) {
         if prevDua != dua {
             self.dua = dua
+            // save selected dua
+            UserDefaults.standard.set(dua.index, forKey: "PreviouslyViewedDuaNumber")
         }
     }
         
