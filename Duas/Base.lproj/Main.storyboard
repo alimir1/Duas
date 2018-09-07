@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1I-FO-a4o" customClass="DuaView" customModule="Duas" customModuleProvider="target">
-                                <rect key="frame" x="8" y="64" width="359" height="603"/>
+                                <rect key="frame" x="8" y="64" width="364" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -32,7 +31,7 @@
                         <constraints>
                             <constraint firstItem="y1I-FO-a4o" firstAttribute="bottom" secondItem="bEh-DX-Our" secondAttribute="bottom" id="3tf-QZ-u7T"/>
                             <constraint firstItem="y1I-FO-a4o" firstAttribute="leading" secondItem="bEh-DX-Our" secondAttribute="leading" constant="8" id="X4d-9d-6cV"/>
-                            <constraint firstItem="bEh-DX-Our" firstAttribute="trailing" secondItem="y1I-FO-a4o" secondAttribute="trailing" constant="8" id="nsf-BM-0Tu"/>
+                            <constraint firstItem="bEh-DX-Our" firstAttribute="trailing" secondItem="y1I-FO-a4o" secondAttribute="trailing" constant="3" id="nsf-BM-0Tu"/>
                             <constraint firstItem="y1I-FO-a4o" firstAttribute="top" secondItem="bEh-DX-Our" secondAttribute="top" id="p0h-Rf-NcW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bEh-DX-Our"/>
