@@ -1,0 +1,361 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FEEBC63F2141EDE800A6A524 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBC63E2141EDE800A6A524 /* AppDelegate.swift */; };
+		FEEBC6442141EDE800A6A524 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEEBC6422141EDE800A6A524 /* Main.storyboard */; };
+		FEEBC6462141EDFD00A6A524 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEEBC6452141EDFD00A6A524 /* Assets.xcassets */; };
+		FEEBC6492141EDFE00A6A524 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEEBC6472141EDFE00A6A524 /* LaunchScreen.storyboard */; };
+		FEEBC6512141EE6400A6A524 /* DuaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBC6502141EE6300A6A524 /* DuaViewController.swift */; };
+		FEEBC6532141EE8300A6A524 /* Scheherazade-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FEEBC6522141EE8200A6A524 /* Scheherazade-Regular.ttf */; };
+		FEEBC6552141EEE400A6A524 /* DuaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBC6542141EEE400A6A524 /* DuaView.swift */; };
+		FEEBC6572141F21C00A6A524 /* DuaTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBC6562141F21C00A6A524 /* DuaTexts.swift */; };
+		FEEBC65B2142017900A6A524 /* DuasListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBC65A2142017900A6A524 /* DuasListViewController.swift */; };
+		FEEBC65D214203A100A6A524 /* Dua.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBC65C214203A100A6A524 /* Dua.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FEEBC63B2141EDE800A6A524 /* Duas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Duas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEEBC63E2141EDE800A6A524 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FEEBC6432141EDE800A6A524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FEEBC6452141EDFD00A6A524 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FEEBC6482141EDFE00A6A524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FEEBC64A2141EDFE00A6A524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEEBC6502141EE6300A6A524 /* DuaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DuaViewController.swift; sourceTree = "<group>"; };
+		FEEBC6522141EE8200A6A524 /* Scheherazade-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Scheherazade-Regular.ttf"; sourceTree = "<group>"; };
+		FEEBC6542141EEE400A6A524 /* DuaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaView.swift; sourceTree = "<group>"; };
+		FEEBC6562141F21C00A6A524 /* DuaTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaTexts.swift; sourceTree = "<group>"; };
+		FEEBC65A2142017900A6A524 /* DuasListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuasListViewController.swift; sourceTree = "<group>"; };
+		FEEBC65C214203A100A6A524 /* Dua.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dua.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FEEBC6382141EDE800A6A524 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FEEBC6322141EDE700A6A524 = {
+			isa = PBXGroup;
+			children = (
+				FEEBC63D2141EDE800A6A524 /* Duas */,
+				FEEBC63C2141EDE800A6A524 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FEEBC63C2141EDE800A6A524 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FEEBC63B2141EDE800A6A524 /* Duas.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FEEBC63D2141EDE800A6A524 /* Duas */ = {
+			isa = PBXGroup;
+			children = (
+				FEEBC63E2141EDE800A6A524 /* AppDelegate.swift */,
+				FEEBC6542141EEE400A6A524 /* DuaView.swift */,
+				FEEBC65C214203A100A6A524 /* Dua.swift */,
+				FEEBC6562141F21C00A6A524 /* DuaTexts.swift */,
+				FEEBC6502141EE6300A6A524 /* DuaViewController.swift */,
+				FEEBC65A2142017900A6A524 /* DuasListViewController.swift */,
+				FEEBC6522141EE8200A6A524 /* Scheherazade-Regular.ttf */,
+				FEEBC6422141EDE800A6A524 /* Main.storyboard */,
+				FEEBC6452141EDFD00A6A524 /* Assets.xcassets */,
+				FEEBC6472141EDFE00A6A524 /* LaunchScreen.storyboard */,
+				FEEBC64A2141EDFE00A6A524 /* Info.plist */,
+			);
+			path = Duas;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FEEBC63A2141EDE800A6A524 /* Duas */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEEBC64D2141EDFE00A6A524 /* Build configuration list for PBXNativeTarget "Duas" */;
+			buildPhases = (
+				FEEBC6372141EDE800A6A524 /* Sources */,
+				FEEBC6382141EDE800A6A524 /* Frameworks */,
+				FEEBC6392141EDE800A6A524 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Duas;
+			productName = Duas;
+			productReference = FEEBC63B2141EDE800A6A524 /* Duas.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FEEBC6332141EDE700A6A524 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = Duas;
+				TargetAttributes = {
+					FEEBC63A2141EDE800A6A524 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = FEEBC6362141EDE700A6A524 /* Build configuration list for PBXProject "Duas" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FEEBC6322141EDE700A6A524;
+			productRefGroup = FEEBC63C2141EDE800A6A524 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FEEBC63A2141EDE800A6A524 /* Duas */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FEEBC6392141EDE800A6A524 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEEBC6492141EDFE00A6A524 /* LaunchScreen.storyboard in Resources */,
+				FEEBC6462141EDFD00A6A524 /* Assets.xcassets in Resources */,
+				FEEBC6532141EE8300A6A524 /* Scheherazade-Regular.ttf in Resources */,
+				FEEBC6442141EDE800A6A524 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FEEBC6372141EDE800A6A524 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEEBC6512141EE6400A6A524 /* DuaViewController.swift in Sources */,
+				FEEBC65B2142017900A6A524 /* DuasListViewController.swift in Sources */,
+				FEEBC65D214203A100A6A524 /* Dua.swift in Sources */,
+				FEEBC63F2141EDE800A6A524 /* AppDelegate.swift in Sources */,
+				FEEBC6552141EEE400A6A524 /* DuaView.swift in Sources */,
+				FEEBC6572141F21C00A6A524 /* DuaTexts.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FEEBC6422141EDE800A6A524 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FEEBC6432141EDE800A6A524 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FEEBC6472141EDFE00A6A524 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FEEBC6482141EDFE00A6A524 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FEEBC64B2141EDFE00A6A524 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FEEBC64C2141EDFE00A6A524 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FEEBC64E2141EDFE00A6A524 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M6ZVBN5V88;
+				INFOPLIST_FILE = Duas/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Duas;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FEEBC64F2141EDFE00A6A524 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M6ZVBN5V88;
+				INFOPLIST_FILE = Duas/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Duas;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FEEBC6362141EDE700A6A524 /* Build configuration list for PBXProject "Duas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEEBC64B2141EDFE00A6A524 /* Debug */,
+				FEEBC64C2141EDFE00A6A524 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEEBC64D2141EDFE00A6A524 /* Build configuration list for PBXNativeTarget "Duas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEEBC64E2141EDFE00A6A524 /* Debug */,
+				FEEBC64F2141EDFE00A6A524 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FEEBC6332141EDE700A6A524 /* Project object */;
+}
