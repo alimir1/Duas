@@ -44,7 +44,7 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
     func refreshScrollIndicator(for size: CGSize) {
         guard let customIndicator = customIndicator else { return }
         let size = view.frame.size
-        var navBarHeight: CGFloat = (navigationController?.navigationBar != nil ? 32 : 8)
+        var navBarHeight: CGFloat = (navigationController?.navigationBar != nil ? 30 : 8)
         if UIDevice.current.orientation.isPortrait {
             navBarHeight = navigationController?.navigationBar.frame.height ?? 0
         }
