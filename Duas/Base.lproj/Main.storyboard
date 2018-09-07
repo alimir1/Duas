@@ -60,9 +60,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Try &quot;Dua Kumayl&quot;" id="dbG-ZE-hhF">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="zVR-i6-2Ik" id="tyD-pE-pev"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="duaCell" textLabel="CbR-7V-22N" detailTextLabel="Vcy-DY-XIR" style="IBUITableViewCellStyleValue1" id="TcU-bi-8dr">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TcU-bi-8dr" id="xdD-H2-xeB">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -91,8 +99,20 @@
                             <outlet property="delegate" destination="zVR-i6-2Ik" id="78g-Ve-UD5"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="vmH-dY-VWb" id="ULo-k8-Snb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="biY-Pq-ZhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="vmH-dY-VWb">
+                    <connections>
+                        <outlet property="delegate" destination="zVR-i6-2Ik" id="bXE-fY-fb2"/>
+                        <outlet property="searchBar" destination="dbG-ZE-hhF" id="O4V-zd-oVT"/>
+                        <outlet property="searchContentsController" destination="zVR-i6-2Ik" id="pFP-zO-OXK"/>
+                        <outlet property="searchResultsDataSource" destination="zVR-i6-2Ik" id="03V-xI-sda"/>
+                        <outlet property="searchResultsDelegate" destination="zVR-i6-2Ik" id="re9-4V-THa"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2574" y="162"/>
         </scene>
