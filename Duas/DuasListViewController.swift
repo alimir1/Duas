@@ -21,6 +21,7 @@ class DuasListViewController: UITableViewController, UISearchControllerDelegate,
     var delegate: DuaSelectionDelegate?
     
     var duasFromDatabase = [Dua]()
+    var selectedDua: Dua?
     
     var _duas = [Dua]() {
         didSet {
@@ -42,6 +43,13 @@ class DuasListViewController: UITableViewController, UISearchControllerDelegate,
         navigationItem.searchController = searchController
         definesPresentationContext = true
         searchController.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let dua = selectedDua {
+            delegate?.didSelectDua(dua)
+        }
     }
     
     func categoryDuaHelper(from duas: [Dua]) -> ([String], [[Dua]]) {
@@ -127,9 +135,9 @@ class DuasListViewController: UITableViewController, UISearchControllerDelegate,
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedDua = duas[indexPath.section][indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
         _ = navigationController?.popViewController(animated: true)
-        delegate?.didSelectDua(duas[indexPath.section][indexPath.row])
     }
     
 }

@@ -12,9 +12,18 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
     
     @IBOutlet var duasButtonItem: UIBarButtonItem!
     @IBOutlet var duaView: DuaView!
+    
     var adjustedFontSize: CGFloat = 0.0
-    var prevDua: Dua?
-    var dua: Dua?
+    var dua: Dua? {
+        didSet {
+            if oldValue != dua {
+                duaView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+                duaView.dua = dua
+                title = dua?.arabicName
+                refreshScrollIndicator(for: view.frame.size)
+            }
+        }
+    }
     
     var customIndicator: UIView!
     
@@ -24,8 +33,6 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
         let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(onPinch(_:)))
         duaView.delegate = self
         dua = allDuas[UserDefaults.standard.integer(forKey: "PreviouslyViewedDuaNumber")]
-        prevDua = dua
-        duaView.dua = dua
         duaView.addGestureRecognizer(pinchRecognizer)
         view.backgroundColor = UIColor(red:0.98, green:0.96, blue:0.95, alpha:1.0)
         navigationController?.navigationBar.barTintColor = UIColor(red:0.99, green:0.98, blue:0.96, alpha:1.0)
@@ -48,11 +55,6 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-    }
-    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         refreshScrollIndicator(for: size)
         duaView.isScrollEnabled = false
@@ -70,17 +72,6 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        refreshScrollIndicator(for: view.frame.size)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if prevDua != dua {
-            duaView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-            duaView.dua = dua
-            title = dua?.arabicName
-            prevDua = dua
-        }
         refreshScrollIndicator(for: view.frame.size)
     }
         
@@ -122,11 +113,9 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
     }
     
     func didSelectDua(_ dua: Dua) {
-        if prevDua != dua {
-            self.dua = dua
-            // save selected dua
-            UserDefaults.standard.set(dua.index, forKey: "PreviouslyViewedDuaNumber")
-        }
+        self.dua = dua
+        // save selected dua
+        UserDefaults.standard.set(dua.index, forKey: "PreviouslyViewedDuaNumber")
     }
         
 }
