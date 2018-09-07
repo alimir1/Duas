@@ -39,6 +39,7 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         refreshScrollIndicator(for: size)
+        duaView.isScrollEnabled = false
     }
     
     func refreshScrollIndicator(for size: CGSize) {
@@ -49,6 +50,7 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
         }
         let height = ((duaView.contentOffset.y+size.height-navBarHeight)/duaView.contentSize.height)*(size.height-navBarHeight)
         customIndicator.frame = CGRect(x: size.width - customIndicator.frame.width, y: navBarHeight, width: customIndicator.frame.width, height: height)
+        duaView.isScrollEnabled = true
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
