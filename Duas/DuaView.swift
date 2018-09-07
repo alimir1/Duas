@@ -38,10 +38,12 @@ class DuaView: UITextView {
         showsHorizontalScrollIndicator = false
     }
     
-    func zoomTo(fontSize: CGFloat) {
+    @discardableResult
+    func zoomTo(fontSize: CGFloat) -> CGFloat {
         var size = fontSize
         if size < minSize { size = minSize }
         else if size > maxSize { size = maxSize }
         font = UIFont(name: "Scheherazade-Regular", size: size)
+        return size
     }
 }

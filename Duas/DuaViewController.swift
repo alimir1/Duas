@@ -33,8 +33,14 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
         
         view.addSubview(customIndicator)
         
-        // FIXME: - load font size, and contentOffset
-        
+        // load font size, and contentOffset
+        let fontSize = UserDefaults.standard.float(forKey: "DuaVCFontSize")
+        let contentOffset = UserDefaults.standard.float(forKey: "DuaVCContentOffsetY")
+        if fontSize > 0 { duaView.zoomTo(fontSize: CGFloat(fontSize)) }
+        if contentOffset > 0 { 
+            duaView.contentOffset.y = CGFloat(contentOffset)  
+            refreshScrollIndicator(for: view.frame.size)
+        }
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -85,20 +91,23 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
         case .ended:
             duaView.transform = CGAffineTransform(scaleX: 1, y: 1)
             duaView.zoomScale = 1.0
-            duaView.zoomTo(fontSize: adjustedFontSize)
-        // FIXME: - save new font size
+            let newSize = duaView.zoomTo(fontSize: adjustedFontSize)
+        // save new font size
+            UserDefaults.standard.set(Float(newSize), forKey: "DuaVCFontSize")
         default:
             break
         }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        // FIXME: - save content offset
+        // save content offset
+        UserDefaults.standard.set(Float(scrollView.contentOffset.y), forKey: "DuaVCContentOffsetY")
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
-            // FIXME: - save content offset
+            // save content offset
+            UserDefaults.standard.set(Float(scrollView.contentOffset.y), forKey: "DuaVCContentOffsetY")
         }
     }
     
