@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE3D2FE92142FBB700A7AAAE /* DuaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE3D2FE82142FBB700A7AAAE /* DuaView.xib */; };
 		FEEBC63F2141EDE800A6A524 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBC63E2141EDE800A6A524 /* AppDelegate.swift */; };
 		FEEBC6442141EDE800A6A524 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEEBC6422141EDE800A6A524 /* Main.storyboard */; };
 		FEEBC6462141EDFD00A6A524 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEEBC6452141EDFD00A6A524 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE3D2FE82142FBB700A7AAAE /* DuaView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DuaView.xib; sourceTree = "<group>"; };
 		FEEBC63B2141EDE800A6A524 /* Duas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Duas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEEBC63E2141EDE800A6A524 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEEBC6432141EDE800A6A524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				FEEBC63E2141EDE800A6A524 /* AppDelegate.swift */,
 				FEEBC6542141EEE400A6A524 /* DuaView.swift */,
 				FEEBC65C214203A100A6A524 /* Dua.swift */,
+				FE3D2FE82142FBB700A7AAAE /* DuaView.xib */,
 				FEEBC6562141F21C00A6A524 /* DuaTexts.swift */,
 				FEEBC6502141EE6300A6A524 /* DuaViewController.swift */,
 				FEEBC65A2142017900A6A524 /* DuasListViewController.swift */,
@@ -141,6 +144,7 @@
 				FEEBC6462141EDFD00A6A524 /* Assets.xcassets in Resources */,
 				FEEBC6532141EE8300A6A524 /* Scheherazade-Regular.ttf in Resources */,
 				FEEBC6442141EDE800A6A524 /* Main.storyboard in Resources */,
+				FE3D2FE92142FBB700A7AAAE /* DuaView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
