@@ -10,6 +10,7 @@ import UIKit
 
 class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDelegate {
     
+    @IBOutlet var duasButtonItem: UIBarButtonItem!
     @IBOutlet var duaView: DuaView!
     var adjustedFontSize: CGFloat = 0.0
     var prevDua: Dua?
@@ -19,17 +20,21 @@ class DuaViewController: UIViewController, UITextViewDelegate, DuaSelectionDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(onPinch(_:)))
         duaView.delegate = self
         dua = allDuas[UserDefaults.standard.integer(forKey: "PreviouslyViewedDuaNumber")]
         prevDua = dua
         duaView.dua = dua
         duaView.addGestureRecognizer(pinchRecognizer)
+        view.backgroundColor = UIColor(red:0.98, green:0.96, blue:0.95, alpha:1.0)
+        navigationController?.navigationBar.barTintColor = UIColor(red:0.99, green:0.98, blue:0.96, alpha:1.0)
+
         title = dua?.arabicName
         
         let navBarHeight = self.navigationController?.navigationBar.frame.size.height ?? 0
-        customIndicator = UIView(frame: CGRect(x: view.frame.width - 3, y: navBarHeight, width: 3, height: 0))
-        customIndicator.backgroundColor = .red
+        customIndicator = UIView(frame: CGRect(x: view.frame.width - 5, y: navBarHeight, width: 5, height: 0))
+        customIndicator.backgroundColor = .brown
         
         view.addSubview(customIndicator)
         

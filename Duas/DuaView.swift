@@ -37,6 +37,7 @@ class DuaView: UITextView {
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         textContainerInset = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 8)
+        backgroundColor = UIColor(red:0.98, green:0.96, blue:0.95, alpha:1.0)
     }
     
     @discardableResult

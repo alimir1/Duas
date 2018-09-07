@@ -101,7 +101,11 @@ class DuasListViewController: UITableViewController, UISearchControllerDelegate,
     }
     
     // MARK: - Table view setup
-
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.backgroundColor = UIColor(red:0.60, green:0.40, blue:0.20, alpha:1.0)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return duas[section].count
     }
