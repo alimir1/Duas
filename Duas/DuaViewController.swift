@@ -12,13 +12,11 @@ class DuaViewController: UIViewController, DuaSelectionDelegate {
     
     @IBOutlet var duasButtonItem: UIBarButtonItem!
     @IBOutlet var duaView: DuaView!
-    
+        
     var dua: Dua? {
         didSet {
-            if oldValue != dua {
-                duaView.dua = dua
-                title = dua?.arabicName
-            }
+            duaView.dua = dua
+            title = dua?.arabicName
         }
     }
     
@@ -27,6 +25,12 @@ class DuaViewController: UIViewController, DuaSelectionDelegate {
         dua = allDuas[UserDefaults.standard.integer(forKey: "PreviouslyViewedDuaNumber")]
         view.backgroundColor = UIColor(red:0.98, green:0.96, blue:0.95, alpha:1.0)
         navigationController?.navigationBar.barTintColor = UIColor(red:0.99, green:0.98, blue:0.96, alpha:1.0)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // save contentOffset
+        UserDefaults.standard.set(Float(duaView.textView.contentOffset.y), forKey: "DuaVCContentOffsetY")
     }
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

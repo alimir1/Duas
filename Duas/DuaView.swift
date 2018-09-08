@@ -12,7 +12,7 @@ class DuaView: UIView, UITextViewDelegate {
     
     private var maxSize: CGFloat = 200
     private var minSize: CGFloat = 10
-    private var savedContentOffsetY: CGFloat = 0
+    private var isFirstTime = true
     
     private var fontSize: CGFloat = 40 {
         didSet {
@@ -23,15 +23,15 @@ class DuaView: UIView, UITextViewDelegate {
     @IBOutlet private var contentView: UIView!
     @IBOutlet private var scrollIndicatorView: UIView!
     @IBOutlet private var scrollViewIndicatorHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private var textView: UITextView!
+    @IBOutlet var textView: UITextView!
     
     var dua: Dua? {
         didSet {
-            textView.text = dua?.text
             if oldValue != dua {
-                let savedOffset = CGPoint(x: 0, y: savedContentOffsetY)
-                textView.setContentOffset(savedOffset, animated: false)
-                savedContentOffsetY = 0
+                textView.text = dua?.text
+                if !isFirstTime {
+                    textView.contentOffset.y = 0
+                }
             }
         }
     }
@@ -48,8 +48,14 @@ class DuaView: UIView, UITextViewDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        textView.isScrollEnabled = false
-        resetScrollViewIndicatorHeight()
+        if !textView.isScrollEnabled {
+            textView.isScrollEnabled = true
+        }
+        if isFirstTime {
+            let offsetY: CGFloat = CGFloat(UserDefaults.standard.float(forKey: "DuaVCContentOffsetY"))
+            textView.contentOffset.y = offsetY
+            isFirstTime = false
+        }
     }
     
     func setup() { 
@@ -58,6 +64,8 @@ class DuaView: UIView, UITextViewDelegate {
         nib.instantiate(withOwner: self, options: nil)
         contentView.frame = bounds
         addSubview(contentView)
+        
+        textView.isScrollEnabled = false
         
         scrollIndicatorView.backgroundColor = .brown
         
@@ -73,11 +81,9 @@ class DuaView: UIView, UITextViewDelegate {
         textView.backgroundColor = UIColor(red:0.98, green:0.96, blue:0.95, alpha:1.0)
         
         
-        // load font size, and contentOffset
+        // load font size
         let savedFontSize = UserDefaults.standard.float(forKey: "DuaVCFontSize")
-        let contentOffset = UserDefaults.standard.float(forKey: "DuaVCContentOffsetY")
         if savedFontSize > 0 { zoomTo(fontSize: CGFloat(savedFontSize)) }
-        savedContentOffsetY = CGFloat(contentOffset)
         
         let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(onPinch(_:)))
         addGestureRecognizer(pinchRecognizer)
@@ -110,23 +116,10 @@ class DuaView: UIView, UITextViewDelegate {
     private func resetScrollViewIndicatorHeight() {
         let height = ((textView.contentOffset.y+frame.size.height)/textView.contentSize.height)*frame.size.height
         scrollViewIndicatorHeightConstraint.constant = height
-        textView.isScrollEnabled = true
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         resetScrollViewIndicatorHeight()
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        // save content offset
-        UserDefaults.standard.set(Float(scrollView.contentOffset.y), forKey: "DuaVCContentOffsetY")
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            // save content offset
-            UserDefaults.standard.set(Float(scrollView.contentOffset.y), forKey: "DuaVCContentOffsetY")
-        }
     }
     
     @discardableResult
