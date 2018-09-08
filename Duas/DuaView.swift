@@ -12,6 +12,7 @@ class DuaView: UIView, UITextViewDelegate {
     
     private var maxSize: CGFloat = 200
     private var minSize: CGFloat = 10
+    private var adjustedFontSize: CGFloat = 0.0
     private var isFirstTime = true
     
     private var fontSize: CGFloat = 40 {
@@ -90,8 +91,6 @@ class DuaView: UIView, UITextViewDelegate {
     }
     
     // MARK: - Pinch
-    
-    var adjustedFontSize: CGFloat = 0.0
     
     @objc func onPinch(_ sender: UIPinchGestureRecognizer) {
         switch sender.state {
