@@ -8,10 +8,17 @@
 
 import UIKit
 
+protocol SettingViewDelegate: class {
+    func settingView(_ settingView: SettingView, didUpdateTheme theme: Theme)
+}
+
 class SettingView: UIView {
     
+    @IBOutlet var colorsStackView: UIStackView!
     @IBOutlet private var contentView: UIView!
     @IBOutlet private var colorOptionViews: [UIView]!
+    
+    var delegate: SettingViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,11 +40,19 @@ class SettingView: UIView {
         colorOptionViews.forEach { (colorView) in
             colorView.layer.cornerRadius = colorView.frame.size.width/2
             colorView.layer.masksToBounds = true
-            
             colorView.layer.borderColor = UIColor.black.cgColor
             colorView.layer.borderWidth = 2.0
+            let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onColorTap(_:)))
+            colorView.addGestureRecognizer(gestureRecognizer)
         }
-        
+    }
+    
+    @objc private func onColorTap(_ gesture: UITapGestureRecognizer) {
+        let pressedLoc = gesture.location(in: colorsStackView)
+        let hitTestView = colorsStackView.hitTest(pressedLoc, with: nil)
+        if let hitView = hitTestView, let theme = Theme(rawValue: hitView.tag) {
+            delegate?.settingView(self, didUpdateTheme: theme)
+        }
     }
 
 }

@@ -8,12 +8,12 @@
 
 import UIKit
 
-class DuaViewController: UIViewController, DuaSelectionDelegate {
+class DuaViewController: UIViewController, DuaSelectionDelegate, SettingViewDelegate {
     
-    @IBOutlet var duasButtonItem: UIBarButtonItem!
+    @IBOutlet private var duasButtonItem: UIBarButtonItem!
     @IBOutlet var duaView: DuaView!
-    @IBOutlet var settingsView: SettingView!
-        
+    @IBOutlet private var settingsView: SettingView!
+    
     var dua: Dua? {
         didSet {
             duaView.dua = dua
@@ -24,10 +24,9 @@ class DuaViewController: UIViewController, DuaSelectionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         dua = allDuas[UserDefaults.standard.integer(forKey: "PreviouslyViewedDuaNumber")]
-        view.backgroundColor = UIColor(red:0.98, green:0.96, blue:0.95, alpha:1.0)
-        navigationController?.navigationBar.barTintColor = UIColor(red:0.99, green:0.98, blue:0.96, alpha:1.0)
         settingsView.layer.cornerRadius = 20
         settingsView.layer.masksToBounds = true
+        settingsView.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -35,7 +34,21 @@ class DuaViewController: UIViewController, DuaSelectionDelegate {
         // save contentOffset
         UserDefaults.standard.set(Float(duaView.textView.contentOffset.y), forKey: "DuaVCContentOffsetY")
     }
-        
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateThemeView()
+    }
+    
+    private func updateThemeView() {
+        navigationController?.navigationBar.barTintColor = ThemeManager.currentTheme.secondaryColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : ThemeManager.currentTheme.navBarTintColor]
+        view.backgroundColor = ThemeManager.currentTheme.backgroundColor
+        duaView.scrollIndicatorView.backgroundColor = ThemeManager.currentTheme.mainColor
+        duaView.textView.backgroundColor = ThemeManager.currentTheme.backgroundColor
+        duaView.textView.textColor = ThemeManager.currentTheme.textColor
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "duaListSegue" {
             let vc = segue.destination as! DuasListViewController
@@ -49,7 +62,12 @@ class DuaViewController: UIViewController, DuaSelectionDelegate {
         UserDefaults.standard.set(dua.index, forKey: "PreviouslyViewedDuaNumber")
     }
     
-    @IBAction func onFilterTap() {
+    func settingView(_ settingView: SettingView, didUpdateTheme theme: Theme) {
+        ThemeManager.applyTheme(theme: theme)
+        updateThemeView()
+    }
+    
+    @IBAction private func onFilterTap() {
         settingsView.isHidden = !settingsView.isHidden
     }
         

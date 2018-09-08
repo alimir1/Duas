@@ -27,10 +27,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U99-uC-HpT" customClass="SettingView" customModule="Duas" customModuleProvider="target">
-                                <rect key="frame" x="8" y="72" width="300" height="150"/>
+                                <rect key="frame" x="8" y="72" width="300" height="110"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="J5M-YR-heV"/>
+                                    <constraint firstAttribute="height" constant="110" id="J5M-YR-heV"/>
                                     <constraint firstAttribute="width" constant="300" id="LCA-pv-Sko"/>
                                 </constraints>
                             </view>
@@ -156,5 +156,4 @@
         <image name="Book" width="24" height="24"/>
         <image name="Filter" width="24" height="24"/>
     </resources>
-    <color key="tintColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="deviceRGB"/>
 </document>

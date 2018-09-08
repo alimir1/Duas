@@ -22,9 +22,9 @@ class DuaView: UIView, UITextViewDelegate {
     }
     
     @IBOutlet private var contentView: UIView!
-    @IBOutlet private var scrollIndicatorView: UIView!
     @IBOutlet private var scrollViewIndicatorHeightConstraint: NSLayoutConstraint!
     @IBOutlet var textView: UITextView!
+    @IBOutlet var scrollIndicatorView: UIView!
     
     var dua: Dua? {
         didSet {
@@ -59,7 +59,7 @@ class DuaView: UIView, UITextViewDelegate {
         }
     }
     
-    func setup() { 
+    private func setup() { 
         
         let nib = UINib(nibName: "DuaView", bundle: nil)
         nib.instantiate(withOwner: self, options: nil)
@@ -67,8 +67,6 @@ class DuaView: UIView, UITextViewDelegate {
         addSubview(contentView)
         
         textView.isScrollEnabled = false
-        
-        scrollIndicatorView.backgroundColor = .brown
         
         textView.delegate = self
         textView.font = UIFont(name: "Scheherazade-Regular", size: fontSize)
@@ -78,9 +76,6 @@ class DuaView: UIView, UITextViewDelegate {
         textView.showsVerticalScrollIndicator = false
         textView.showsHorizontalScrollIndicator = false
         textView.textContainerInset = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 10)
-        backgroundColor = UIColor(red:0.98, green:0.96, blue:0.95, alpha:1.0)
-        textView.backgroundColor = UIColor(red:0.98, green:0.96, blue:0.95, alpha:1.0)
-        
         
         // load font size
         let savedFontSize = UserDefaults.standard.float(forKey: "DuaVCFontSize")

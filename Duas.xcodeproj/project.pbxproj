@@ -20,6 +20,7 @@
 		FEEBC6572141F21C00A6A524 /* DuaTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBC6562141F21C00A6A524 /* DuaTexts.swift */; };
 		FEEBC65B2142017900A6A524 /* DuasListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBC65A2142017900A6A524 /* DuasListViewController.swift */; };
 		FEEBC65D214203A100A6A524 /* Dua.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBC65C214203A100A6A524 /* Dua.swift */; };
+		FEF404AD214439D500E62D98 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF404AC214439D500E62D98 /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FEEBC6562141F21C00A6A524 /* DuaTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaTexts.swift; sourceTree = "<group>"; };
 		FEEBC65A2142017900A6A524 /* DuasListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuasListViewController.swift; sourceTree = "<group>"; };
 		FEEBC65C214203A100A6A524 /* Dua.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dua.swift; sourceTree = "<group>"; };
+		FEF404AC214439D500E62D98 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				FEEBC63E2141EDE800A6A524 /* AppDelegate.swift */,
+				FEF404AC214439D500E62D98 /* ThemeManager.swift */,
 				FEEBC6542141EEE400A6A524 /* DuaView.swift */,
 				FEEBC65C214203A100A6A524 /* Dua.swift */,
 				FE3D2FEC21436BAC00A7AAAE /* SettingView.swift */,
@@ -165,6 +168,7 @@
 				FEEBC6512141EE6400A6A524 /* DuaViewController.swift in Sources */,
 				FEEBC65B2142017900A6A524 /* DuasListViewController.swift in Sources */,
 				FEEBC65D214203A100A6A524 /* Dua.swift in Sources */,
+				FEF404AD214439D500E62D98 /* ThemeManager.swift in Sources */,
 				FE3D2FED21436BAC00A7AAAE /* SettingView.swift in Sources */,
 				FEEBC63F2141EDE800A6A524 /* AppDelegate.swift in Sources */,
 				FEEBC6552141EEE400A6A524 /* DuaView.swift in Sources */,

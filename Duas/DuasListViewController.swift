@@ -45,6 +45,11 @@ class DuasListViewController: UITableViewController, UISearchControllerDelegate,
         searchController.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.backgroundColor = ThemeManager.currentTheme.mainColor == .black ? .black : .white
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if let dua = selectedDua {
@@ -121,12 +126,15 @@ class DuasListViewController: UITableViewController, UISearchControllerDelegate,
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return categories[section]
     }
-    
+        
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "duaCell", for: indexPath)
         let dua = duas[indexPath.section][indexPath.row]
         cell.textLabel?.text = dua.englishName
         cell.detailTextLabel?.text = dua.arabicName
+        cell.backgroundColor = ThemeManager.currentTheme.secondaryColor
+        cell.textLabel?.textColor = ThemeManager.currentTheme.textColor
+        cell.detailTextLabel?.textColor = ThemeManager.currentTheme.textColor
         return cell
     }
     
