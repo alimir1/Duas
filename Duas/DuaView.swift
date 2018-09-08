@@ -106,6 +106,7 @@ class DuaView: UIView, UITextViewDelegate {
             fontSize = newSize
             // save new font size
             UserDefaults.standard.set(Float(newSize), forKey: "DuaVCFontSize")
+            resetScrollViewIndicatorHeight()
         default:
             break
         }
