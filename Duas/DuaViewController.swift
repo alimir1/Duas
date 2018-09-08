@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Triplebyte
+//  
 //
 //  Created by Ishraq on 9/5/18.
 //  Copyright © 2018 Ali. All rights reserved.
@@ -12,6 +12,7 @@ class DuaViewController: UIViewController, DuaSelectionDelegate {
     
     @IBOutlet var duasButtonItem: UIBarButtonItem!
     @IBOutlet var duaView: DuaView!
+    @IBOutlet var settingsView: SettingView!
         
     var dua: Dua? {
         didSet {
@@ -25,6 +26,8 @@ class DuaViewController: UIViewController, DuaSelectionDelegate {
         dua = allDuas[UserDefaults.standard.integer(forKey: "PreviouslyViewedDuaNumber")]
         view.backgroundColor = UIColor(red:0.98, green:0.96, blue:0.95, alpha:1.0)
         navigationController?.navigationBar.barTintColor = UIColor(red:0.99, green:0.98, blue:0.96, alpha:1.0)
+        settingsView.layer.cornerRadius = 20
+        settingsView.layer.masksToBounds = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -44,6 +47,10 @@ class DuaViewController: UIViewController, DuaSelectionDelegate {
         self.dua = dua
         // save selected dua
         UserDefaults.standard.set(dua.index, forKey: "PreviouslyViewedDuaNumber")
+    }
+    
+    @IBAction func onFilterTap() {
+        settingsView.isHidden = !settingsView.isHidden
     }
         
 }
