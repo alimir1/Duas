@@ -28,30 +28,30 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xOx-7A-0pn">
-                    <rect key="frame" x="3" y="4" width="297" height="106"/>
+                    <rect key="frame" x="5" y="5" width="290" height="105"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Tj2-Qn-a1w">
-                            <rect key="frame" x="0.0" y="0.0" width="297" height="53"/>
+                            <rect key="frame" x="0.0" y="0.0" width="290" height="51.5"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rpk-Lz-zqN">
-                                    <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
-                                    <color key="backgroundColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="deviceRGB"/>
-                                </view>
                                 <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xi3-5H-cje">
-                                    <rect key="frame" x="61" y="0.0" width="53" height="53"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="51.5" height="51.5"/>
                                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                 </view>
-                                <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vU7-H8-2DY">
-                                    <rect key="frame" x="122" y="0.0" width="53" height="53"/>
-                                    <color key="backgroundColor" red="0.016503576919999999" green="0.61619575780000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnH-RE-lmW">
+                                    <rect key="frame" x="59.5" y="0.0" width="51.5" height="51.5"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rpk-Lz-zqN">
+                                    <rect key="frame" x="119" y="0.0" width="52" height="51.5"/>
+                                    <color key="backgroundColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="deviceRGB"/>
                                 </view>
                                 <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D88-PU-pJ9">
-                                    <rect key="frame" x="183" y="0.0" width="53" height="53"/>
+                                    <rect key="frame" x="179" y="0.0" width="51.5" height="51.5"/>
                                     <color key="backgroundColor" red="0.081666936529999998" green="0.081666936529999998" blue="0.081666936529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
-                                <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnH-RE-lmW">
-                                    <rect key="frame" x="244" y="0.0" width="53" height="53"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vU7-H8-2DY">
+                                    <rect key="frame" x="238.5" y="0.0" width="51.5" height="51.5"/>
+                                    <color key="backgroundColor" red="0.016503576919999999" green="0.61619575780000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                             </subviews>
                             <constraints>
@@ -59,10 +59,10 @@
                             </constraints>
                         </stackView>
                         <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ByR-TF-iZS">
-                            <rect key="frame" x="0.0" y="58" width="297" height="48"/>
+                            <rect key="frame" x="0.0" y="56.5" width="290" height="48.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Pinch to increase or decrease font" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhC-2Y-uZK">
-                                    <rect key="frame" x="0.0" y="0.0" width="297" height="48"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="290" height="48.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -81,10 +81,10 @@
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
-                <constraint firstItem="xOx-7A-0pn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="4" id="33H-o4-3Y8"/>
+                <constraint firstItem="xOx-7A-0pn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="33H-o4-3Y8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="xOx-7A-0pn" secondAttribute="bottom" id="jeq-yB-gou"/>
-                <constraint firstItem="xOx-7A-0pn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="3" id="kTK-mb-ZHZ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xOx-7A-0pn" secondAttribute="trailing" id="pIa-gj-zel"/>
+                <constraint firstItem="xOx-7A-0pn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="kTK-mb-ZHZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xOx-7A-0pn" secondAttribute="trailing" constant="5" id="pIa-gj-zel"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

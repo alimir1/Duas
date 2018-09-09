@@ -49,6 +49,12 @@ enum Theme: Int {
         }
     }
     
+    var scrollIndicatorColor: UIColor {
+        if self == .black { return .white }
+        if self == .white { return .black }
+        return mainColor
+    }
+    
     var secondaryColor: UIColor {
         switch self {
         case .brown:

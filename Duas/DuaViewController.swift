@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DuaViewController: UIViewController, DuaSelectionDelegate, SettingViewDelegate {
+class DuaViewController: UIViewController, DuaSelectionDelegate, SettingViewDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet private var duasButtonItem: UIBarButtonItem!
     @IBOutlet var duaView: DuaView!
@@ -27,6 +27,10 @@ class DuaViewController: UIViewController, DuaSelectionDelegate, SettingViewDele
         settingsView.layer.cornerRadius = 20
         settingsView.layer.masksToBounds = true
         settingsView.delegate = self
+        settingsView.alpha = 0.0 
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissSettingsView))
+        tapGesture.delegate = self
+        self.duaView.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -40,11 +44,15 @@ class DuaViewController: UIViewController, DuaSelectionDelegate, SettingViewDele
         updateThemeView()
     }
     
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
     private func updateThemeView() {
         navigationController?.navigationBar.barTintColor = ThemeManager.currentTheme.secondaryColor
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : ThemeManager.currentTheme.navBarTintColor]
         view.backgroundColor = ThemeManager.currentTheme.backgroundColor
-        duaView.scrollIndicatorView.backgroundColor = ThemeManager.currentTheme.mainColor
+        duaView.scrollIndicatorView.backgroundColor = ThemeManager.currentTheme.scrollIndicatorColor
         duaView.textView.backgroundColor = ThemeManager.currentTheme.backgroundColor
         duaView.textView.textColor = ThemeManager.currentTheme.textColor
     }
@@ -67,8 +75,18 @@ class DuaViewController: UIViewController, DuaSelectionDelegate, SettingViewDele
         updateThemeView()
     }
     
+    @objc private func dismissSettingsView(_ sender: UITapGestureRecognizer? = nil) {
+        UIView.animate(withDuration: 0.5) { 
+            self.settingsView.alpha = 0
+        }
+    }
+    
     @IBAction private func onFilterTap() {
-        settingsView.isHidden = !settingsView.isHidden
+        guard settingsView.alpha == 0 else { 
+            dismissSettingsView()
+            return
+        }
+        settingsView.alpha = 1
     }
         
 }

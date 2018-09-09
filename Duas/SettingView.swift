@@ -41,9 +41,13 @@ class SettingView: UIView {
             colorView.layer.cornerRadius = colorView.frame.size.width/2
             colorView.layer.masksToBounds = true
             colorView.layer.borderColor = UIColor.black.cgColor
-            colorView.layer.borderWidth = 2.0
+            
             let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onColorTap(_:)))
             colorView.addGestureRecognizer(gestureRecognizer)
+        }
+        
+        if let toSelectView = (colorOptionViews.filter {$0.tag == ThemeManager.currentTheme.rawValue }).first {
+            toSelectView.layer.borderWidth = 5.0
         }
     }
     
@@ -52,6 +56,10 @@ class SettingView: UIView {
         let hitTestView = colorsStackView.hitTest(pressedLoc, with: nil)
         if let hitView = hitTestView, let theme = Theme(rawValue: hitView.tag) {
             delegate?.settingView(self, didUpdateTheme: theme)
+            for view in colorOptionViews {
+                if view == hitView { view.layer.borderWidth = 5.0 } 
+                else { view.layer.borderWidth = 0.0 }
+            }
         }
     }
 
